@@ -2,6 +2,26 @@ body {
     margin: auto;
 }
 
+@mixin mobile{
+    @media screen and (max-width:480px){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media screen and (max-width:768px){
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width:1200px){
+        @content;
+    }
+}
+
+$darkColor : rgba(106, 137, 140, 0.815);
+
 .formContainer {
     background-color: rgba(106, 137, 140, 0.815);
     height: 100vh;
@@ -73,7 +93,7 @@ body {
 }
 
 .home {
-    background-color: rgba(106, 137, 140, 0.815);
+    background-color: $darkColor;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -86,10 +106,14 @@ body {
         height: 85%;
         display: flex;
         overflow: hidden;
+        @include tablet{
+            width: 90%;
+        }
 
         .sidebar {
             flex: 1;
             background-color: rgba(39, 60, 61, 0.815);
+            position: relative;
 
             .navbar {
                 display: flex;
@@ -102,6 +126,9 @@ body {
 
                 .logo {
                     font-weight: bold;
+                    @include tablet{
+                        display: none;
+                    }
                 }
 
                 .user {
@@ -122,6 +149,10 @@ body {
                         font-size: 10px;
                         border: none;
                         cursor: pointer;
+                        @include tablet{
+                            position: absolute;
+                            bottom: 10px;
+                        }
                     }
                 }
             }
