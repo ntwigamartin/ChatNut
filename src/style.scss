@@ -106,12 +106,23 @@ $darkColor : rgba(106, 137, 140, 0.815);
         height: 85%;
         display: flex;
         overflow: hidden;
-        @include tablet{
+        @include mobile{
             width: 90%;
         }
+        // @media(max-width: 425px) {
+        //     .sidebar{
+        //         flex-grow: 1;
+        //         flex-basis: 33.33%;
+        //     }
+        //     .chat{
+        //         flex-grow: 2;
+        //         flex-basis: 66.66%;
+        //     }
+        // }
 
         .sidebar {
-            flex: 1;
+            flex-grow: 1;
+            flex-basis: 33.33%;
             background-color: rgba(39, 60, 61, 0.815);
             position: relative;
 
@@ -209,7 +220,8 @@ $darkColor : rgba(106, 137, 140, 0.815);
         }
 
         .chat {
-            flex : 2;
+            flex-grow : 2;
+            flex-basis: 66.66%;
 
             .chatInfo {
                 height: 50px;
